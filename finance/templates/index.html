@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <h1>My Account</h1>
+    <br>
+    <h4>
+    </h4>
+    <h3>Account Summary</h3>
+    <br>
+
+    <!-- User account summary -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cash Total</th>
+                <th scope="col">Portfolio Total</th>
+                <th scope="col">Grand Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash_total }}</td>
+                <td>{{ portfolio_total }}</td>
+                <td>{{ grand_total }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <h3>Portfolio Summary</h3>
+    <br>
+
+    <!-- Portfolio Summary -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Stock Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Current Stock Price</th>
+                <th scope="col">Current Stock Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock, details in stocks.items() %}
+            <tr>
+                <td>{{ stock }}</td>
+                <td>{{ details['quantity'] }}</td>
+                <td>{{ details['current_price'] }}</td>
+                <td>{{ details['total_value'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
